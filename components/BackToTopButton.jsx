@@ -48,7 +48,7 @@ const BackToTopButton = () => {
                 // >
                 //     Scroll to top
                 // </button>
-               <button id="to-top-button"  onClick={scrollToTop} title="Go To Top" className=" fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full drop-shadow-md bg-blue-500/50 text-white text-5xl font-bold">↑</button>
+               <button id="to-top-button"  onClick={scrollToTop} title="Go To Top" className=" fixed z-[999] bottom-8 right-8 border-0 w-16 h-16 rounded-full drop-shadow-md bg-blue-500/50 text-white text-5xl font-bold">↑</button>
 
                 
 
