@@ -22,8 +22,11 @@ const BackToTopButton = () => {
                in place of 'smooth' */
         });
     };
-
-    window.addEventListener('scroll', toggleVisible);
+    useEffect(() => {
+       
+        window.addEventListener('scroll', toggleVisible);
+    }, [])
+    
 
     return (
         <>
