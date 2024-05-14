@@ -8,7 +8,7 @@ export function BlogPage({ data }) {
 
   return (
     <>
-      <article>
+      <article className="mt-20">
         <BlogHeader
           title={post.title}
           coverImage={post.coverImage}
