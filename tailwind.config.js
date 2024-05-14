@@ -7,11 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      
+      fontFamily: {
+        rubik: "Rubik",
       },
+      colors: {
+        primary: '#6200EE',
+        secondary: '#3700B3',
+        'secondary-light': '#03DAC6',
+        'secondary-dark': '#018786',
+        background: '#FFFFFF',
+        surface: '#F2F2F2',
+        error: '#B00020',
+      }
     },
   },
   plugins: [],
