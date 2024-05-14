@@ -95,7 +95,7 @@ const dedupedFetch = cache(
             body,
             next: { revalidate },
         })
-        console.log(response)
+        // console.log(response)
         const responseBody = await response.json();
 
         if (!response.ok) {

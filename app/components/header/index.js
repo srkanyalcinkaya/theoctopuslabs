@@ -52,7 +52,7 @@ export default function Header() {
                     <div className="shrink-0  mr-4 ">
                         <Link href="/">
                             <Image
-                                src="/theoctopuslabslogo.png"
+                                src="/images/theoctopuslabslogo.png"
                                 alt="The Octopus Labs"
                                 width={500}
                                 height={500}
