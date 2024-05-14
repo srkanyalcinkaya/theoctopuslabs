@@ -2,9 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react"
+import { usePathname } from 'next/navigation'
 export default function Header() {
     const headerRef = useRef(null);
-
+    const pathname = usePathname()
     const handleStickyHeader = () => {
         window.addEventListener("scroll", () => {
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -44,6 +45,8 @@ export default function Header() {
 
     ]
 
+    console.log("/"+pathname?.split("/")[1].trim())
+
     return (
         <header className="w-full bg-primary " ref={headerRef}>
             <div className="mx-auto max-w-6xl px-2 md:px-4 md:py-6 py-2">
@@ -68,7 +71,7 @@ export default function Header() {
                                         <Link href={item.href} className="font-medium text-base border-b-0 group   text-white  py-2 px-3 md:px-5  ">
 
                                             {item?.title}
-                                            <div className="h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   " />
+                                            <div className={`${pathname?.split("/")[1] ==  item.href?.split("/")[1] ? "w-full" : "w-0"} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
                                         </Link>
                                     </li>
                                 ))

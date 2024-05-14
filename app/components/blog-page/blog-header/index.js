@@ -1,9 +1,12 @@
+import Link from "next/link";
 import Avatar from "../../avatar";
 import CoverImage from "../../cover-image";
 import Date from "../../date";
 import BlogTitle from "../blog-title";
+import { FaHashtag } from "react-icons/fa";
 
-export default function BlogHeader({ title, coverImage, date, author }) {
+export default function BlogHeader({ title, coverImage, date, author, category }) {
+
     return (
         <>
             <BlogTitle>{title}</BlogTitle>
@@ -20,8 +23,14 @@ export default function BlogHeader({ title, coverImage, date, author }) {
                 <div className="block md:hidden mb-6">
                     <Avatar name={author.name} picture={author.picture} />
                 </div>
-                <div className="mb-6 text-lg">
+                <div className="mb-6 text-lg flex items-center gap-6 w-full justify-between">
                     <Date dateString={date} />
+                    <Link href={`/tag/${category.slug}`}
+                        class="ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
+                    >
+                        <FaHashtag />
+                        {category?.name}
+                    </Link>
                 </div>
             </div>
         </>

@@ -22,6 +22,10 @@ const PAGE_CONTENT_QUERY = `
       }
       title
       slug
+      category {
+        name
+        slug
+      }
       content {
         value
         blocks {

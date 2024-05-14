@@ -62,6 +62,6 @@ export default async function Page() {
     const data = await performRequest(pageRequest);
 
     return (
-        <BlogCard data={data} />
+        <BlogCard data={data.allPosts} />
     )
 }
