@@ -14,7 +14,7 @@ export function BlogPage({ data }) {
           coverImage={post.coverImage}
           date={post.date}
           author={post.author}
-          category={post.category}
+          tags={post.tags}
         />
         <BlogBody content={post.content} />
       </article>

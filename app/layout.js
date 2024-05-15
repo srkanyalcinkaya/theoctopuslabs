@@ -1,14 +1,48 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Container from "./components/container";
 import Header from "./components/header";
+import BackToTopButton from "./components/backtotop";
+import { metaTagsFragment } from "./lib/fragments";
+import { toNextMetadata } from "react-datocms/seo";
+import { performRequest } from "./lib/datocms";
+import Footer from "./components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+
+
+
+const GENERAL_CONTENT_QUERY = `
+    query TagQuery{
+        site: _site {
+          favicon: faviconMetaTags {
+            ...metaTagsFragment
+          }
+          globalSeo {
+            siteName
+            facebookPageUrl
+            titleSuffix
+            twitterAccount
+          }
+        }
+    }
+    ${metaTagsFragment}
+`
+
+
+const { site } = await performRequest({ query: GENERAL_CONTENT_QUERY })
 
 export const metadata = {
-  title: "The Octopus Labs",
-  description: "The Octopus Labs ",
-};
+  title: site.globalSeo.siteName,
+  icons: site.favicon.map((item) => ({
+    rel: item.attributes.rel,
+    type: item.attributes.type,
+    sizes: item.attributes.sizes,
+    url: item.attributes.href,
+  })),
+  description: "The official Next.js Learn Dashboard built with App Router.",
+  metadataBase: new URL("https://next-learn-dashboard.vercel.sh")
+}
+
+
 
 export default function RootLayout({ children }) {
   return (
@@ -18,6 +52,8 @@ export default function RootLayout({ children }) {
         <Container>
           {children}
         </Container>
+        <BackToTopButton />
+        <Footer />
       </body>
     </html>
   );

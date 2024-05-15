@@ -26,13 +26,15 @@ const PAGE_CONTENT_QUERY = `
           ...responsiveImageFragment
         }
       }
-      category {
-        id
-        name
+      tags {
         slug
+        tag
       }
       author {
         name
+        bio
+        description
+        slug
         picture {
           responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100}) {
             ...responsiveImageFragment
@@ -47,21 +49,21 @@ const PAGE_CONTENT_QUERY = `
 `;
 
 function getPageRequest() {
-    return { query: PAGE_CONTENT_QUERY };
+  return { query: PAGE_CONTENT_QUERY };
 }
 
 export async function generateMetadata() {
-    const { site, blog } = await performRequest(getPageRequest());
+  const { site, blog } = await performRequest(getPageRequest());
 
-    return toNextMetadata([...site.favicon, ...blog.seo]);
+  return toNextMetadata([...site.favicon, ...blog.seo]);
 }
 
 export default async function Page() {
 
-    const pageRequest = getPageRequest();
-    const data = await performRequest(pageRequest);
+  const pageRequest = getPageRequest();
+  const data = await performRequest(pageRequest);
 
-    return (
-        <BlogCard data={data.allPosts} />
-    )
+  return (
+    <BlogCard data={data.allPosts} />
+  )
 }

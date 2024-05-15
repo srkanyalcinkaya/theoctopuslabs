@@ -12,10 +12,8 @@ module.exports = {
         rubik: "Rubik",
       },
       colors: {
-        primary: '#6200EE',
-        secondary: '#3700B3',
-        'secondary-light': '#03DAC6',
-        'secondary-dark': '#018786',
+        primary: '#006923',
+        secondary: '#00872d',
         background: '#FFFFFF',
         surface: '#F2F2F2',
         error: '#B00020',

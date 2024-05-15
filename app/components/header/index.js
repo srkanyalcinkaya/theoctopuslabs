@@ -2,16 +2,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react"
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+import { RiMenu3Fill } from "react-icons/ri";
 export default function Header() {
     const headerRef = useRef(null);
     const pathname = usePathname()
     const handleStickyHeader = () => {
         window.addEventListener("scroll", () => {
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                headerRef.current.classList.add("sticky_header")
+                headerRef.current?.classList.add("sticky_header")
             } else {
-                headerRef.current.classList.remove("sticky_header")
+                headerRef.current?.classList.remove("sticky_header")
             }
         })
     }
@@ -45,33 +46,30 @@ export default function Header() {
 
     ]
 
-    console.log("/"+pathname?.split("/")[1].trim())
-
     return (
-        <header className="w-full bg-primary " ref={headerRef}>
-            <div className="mx-auto max-w-6xl px-2 md:px-4 md:py-6 py-2">
-                <div className=" flex justify-between items-center">
+        <header className="w-full bg-primary flex justify-center  " ref={headerRef}>
+            <div className="mx-auto container  w-full px-8 py-4">
+                <div className="flex justify-between items-center">
 
                     <div className="shrink-0  mr-4 ">
                         <Link href="/">
-                            <Image
-                                src="/images/theoctopuslabslogo.png"
+                            <img
+                                src="/images/theoctopuslabslogo.svg"
                                 alt="The Octopus Labs"
-                                width={500}
-                                height={500}
-                                className="h-auto w-auto"
+                                
+                                className="w-auto h-auto "
                             />
                         </Link>
                     </div>
-                    <nav className="md:block hidden  ">
-                        <ul className="flex justify-end items-center  flex-wrap grow gap-3 ">
+                    <nav className="">
+                        <ul className="md:flex hidden justify-end items-center  flex-wrap grow gap-3 ">
                             {
                                 links.map((item, index) => (
                                     <li key={index} className="relative">
                                         <Link href={item.href} className="font-medium text-base border-b-0 group   text-white  py-2 px-3 md:px-5  ">
 
                                             {item?.title}
-                                            <div className={`${pathname?.split("/")[1] ==  item.href?.split("/")[1] ? "w-full" : "w-0"} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
+                                            <div className={`${pathname?.split("/")[1] == item.href?.split("/")[1] ? "w-full" : "w-0"} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
                                         </Link>
                                     </li>
                                 ))
@@ -85,6 +83,9 @@ export default function Header() {
                                 </Link>
                             </li> */}
                         </ul>
+                        <div className="md:hidden block cursor-pointer">
+                            <RiMenu3Fill size={24} color="white"/>
+                        </div>
                     </nav>
                 </div>
             </div>

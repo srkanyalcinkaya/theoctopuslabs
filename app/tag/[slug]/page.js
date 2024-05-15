@@ -19,17 +19,12 @@ const TAG_CONTENT_QUERY = `
               ...metaTagsFragment
             }
           }
-        blog {
-            seo: _seoMetaTags {
-              ...metaTagsFragment
-            }
-        }
-        category(filter: {slug: {eq: $slug}}) {
+        tag(filter: {slug: {eq: $slug}}) {
             seo: _seoMetaTags {
                 ...metaTagsFragment
             }
             slug
-            name
+            tag
             _allReferencingPosts(orderBy: date_DESC) {
                 title
                 slug
@@ -40,13 +35,15 @@ const TAG_CONTENT_QUERY = `
                     ...responsiveImageFragment
                     }
                 }
-                category {
-                    id
-                    name
+                tags {
+                    tag
                     slug
                 }
                 author {
-                    name
+                    name,
+                    bio,
+                    description
+                    slug
                     picture {
                     responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100}) {
                         ...responsiveImageFragment
@@ -67,19 +64,19 @@ function getPageRequest(slug) {
     return { query: TAG_CONTENT_QUERY, variables: { slug } };
 }
 
-// export async function generateMetadata({ params }) {
-//     const { site, post } = await performRequest(getPageRequest(params.slug))
+export async function generateMetadata({ params }) {
+    const { site, tag } = await performRequest(getPageRequest(params.slug))
 
 
-//     return toNextMetadata([...site.favicon, ...post.seo])
-// }
+    return toNextMetadata([...site.favicon, ...tag.seo])
+}
 
 export default async function Page({ params }) {
 
 
     const pageRequest = getPageRequest(params.slug);
     const data = await performRequest(pageRequest);
-
+    
     return (
         <div className="mt-20 flex-col flex items-center justify-center">
 
@@ -87,8 +84,8 @@ export default async function Page({ params }) {
                 <FaHashtag />
                 {params.slug}
             </div>
-            {data.category ?
-                <BlogCard data={data.category._allReferencingPosts} />
+            {data.tag ?
+                <BlogCard data={data.tag._allReferencingPosts} />
                 : 
                 <div>No blogs related to the tag were found.</div>
             }

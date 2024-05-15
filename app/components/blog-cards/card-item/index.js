@@ -6,7 +6,14 @@ export default function CardItem({ blog }) {
         <li>
             <Link href={`/blogs/${blog.slug}`} className="relative flex flex-col sm:flex-row xl:flex-col items-start group">
                 <div className="order-1 sm:ml-6 xl:ml-0">
-                    <div className="mb-1 block text-sm leading-6 text-indigo-500">{blog.category.name}</div>
+                    <div className="mb-1 text-sm leading-6 text-indigo-500 flex gap-2 items-center">
+                        {blog.tags.map((item, index) => (
+                            <span key={index}>
+                                #{item?.tag}
+                            </span>
+                        ))}
+                        {blog.tags.length == 0 && <span>#Tag</span>}
+                    </div>
                     <h3 className="mb-1 text-slate-900 font-semibold">
                         {blog.title}
                     </h3>

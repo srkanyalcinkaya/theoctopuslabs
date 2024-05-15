@@ -25,7 +25,7 @@ body {
   top: 0;
   left: 0;
   z-index: 999;
-  background: #3600b37d;
+  background: #00872d98;
   box-shadow: 3px 3px -8px 3px #ddd;
   backdrop-filter: blur(10px);
   transition: all 0.2s ease 0s;

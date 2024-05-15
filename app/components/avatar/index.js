@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Image } from "react-datocms";
 
-export default function Avatar({ name, picture }) {
+export default function Avatar({ name, picture, bio, slug }) {
   return (
     <div className="flex items-center">
       <div className="w-12 h-12 mr-4">
@@ -10,7 +11,12 @@ export default function Avatar({ name, picture }) {
           className="rounded-full"
         />
       </div>
-      <div className="text-xl font-bold">{name}</div>
+      <Link href={`/author/${slug}`} className="text-xl font-bold flex flex-col items-start text-start">
+        {name}
+        <span className="font-light text-base ">
+          {bio}
+        </span>
+      </Link>
     </div>
   );
 }
