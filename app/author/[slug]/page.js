@@ -73,48 +73,45 @@ export default async function Page({ params }) {
 
     const pageRequest = getPageRequest(params.slug);
     const data = await performRequest(pageRequest);
-    if (!data.author === null) {
-        const { name, bio, picture, description } = data?.author;
-        return (
+
+    const { name, bio, picture, description } = data?.author;
+    return (
 
 
-            <div className="mt-20 flex-col flex items-center justify-center">
+        <div className="mt-20 flex-col flex items-center justify-center">
 
-                <div className=" max-w-2xl w-full gap-4 flex flex-col items-start   px-6 py-3 rounded-full bg-white text-gray-700  ">
-                    <div className="flex items-center">
-                        <div className="mr-4">
-                            <img
-                                alt={name}
-                                src={picture.responsiveImage.src}
-                                className="rounded-sm w-auto h-24"
-                            />
-                        </div>
-                        <div className="text-xl font-bold flex flex-col items-start text-start">
-                            {name}
-                            <span className="font-light text-base ">
-                                {bio}
-                            </span>
-                        </div>
+            <div className=" max-w-2xl w-full gap-4 flex flex-col items-start   px-6 py-3 rounded-full bg-white text-gray-700  ">
+                <div className="flex items-center">
+                    <div className="mr-4">
+                        <img
+                            alt={name}
+                            src={picture.responsiveImage.src}
+                            className="rounded-sm w-auto h-24"
+                        />
                     </div>
-                    <div className="text-base">
-                        {description}
+                    <div className="text-xl font-bold flex flex-col items-start text-start">
+                        {name}
+                        <span className="font-light text-base ">
+                            {bio}
+                        </span>
                     </div>
                 </div>
+                <div className="text-base">
+                    {description}
+                </div>
+            </div>
+            <div className="flex flex-col items-start my-10   w-full">
+                <h4 className="text-4xl font-medium mx-8">
+                    {name.trim().split(" ")[0]}'s Blogs
+                </h4>
                 {data.author ?
                     <BlogCard data={data.author._allReferencingPosts} />
                     :
                     <div>The author's blogs were not found.</div>
                 }
             </div>
-        )
-    } else {
-        return (
+        </div>
+    )
 
-            <div className="mt-20 flex-col flex items-center justify-center">
-                <div>The author's blogs were not found.</div>
-            </div>
-        )
-
-    }
 
 }
