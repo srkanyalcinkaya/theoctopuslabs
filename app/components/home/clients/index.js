@@ -12,7 +12,7 @@ const cardsData = [
 export default function Clients() {
     
     return (
-        <section className='relative max-w-6xl mx-auto px-2 md:px-4 '>
+        <section id="clients" className='relative max-w-6xl mx-auto px-2 md:px-4 '>
 
             <div className='pt-22  w-full  md:pt-28  flex flex-col justify-between'>
                 <div className='pt-32 text-start'>

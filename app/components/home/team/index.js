@@ -3,7 +3,7 @@ import TeamItem from './team-item'
 
 export default function Team () {
     return (
-        <section className=' max-w-6xl mx-auto px-2 md:px-4 '>
+        <section id="team" className=' max-w-6xl mx-auto px-2 md:px-4 '>
             
             <div className='pt-22    md:pt-28  flex flex-col justify-between'>
                 <div className='pt-32 flex flex-col items-start justify-'>

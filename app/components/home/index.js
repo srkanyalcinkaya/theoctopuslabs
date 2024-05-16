@@ -6,7 +6,7 @@ import Technologies from "./technologies";
 
 export default function Home () {
     return(
-        <main className="grow">
+        <main className="grow flex flex-col gap-8">
             <Hero/>
             <Clients/>
             <Technologies/>
