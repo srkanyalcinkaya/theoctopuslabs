@@ -66,9 +66,9 @@ function getPageRequest(slug) {
 
 export async function generateMetadata({ params }) {
     const { site, tag } = await performRequest(getPageRequest(params.slug))
-
-
-    return toNextMetadata([...site.favicon, ...tag.seo])
+    if (!tag == null) {
+        return toNextMetadata([...site.favicon, ...tag?.seo])
+    }
 }
 
 export default async function Page({ params }) {
@@ -76,7 +76,7 @@ export default async function Page({ params }) {
 
     const pageRequest = getPageRequest(params.slug);
     const data = await performRequest(pageRequest);
-    
+
     return (
         <div className="mt-20 flex-col flex items-center justify-center">
 
@@ -86,8 +86,8 @@ export default async function Page({ params }) {
             </div>
             {data.tag ?
                 <BlogCard data={data.tag._allReferencingPosts} />
-                : 
-                <div>No blogs related to the tag were found.</div>
+                :
+                <div className="mt-20">No blogs related to the tag were found.</div>
             }
 
         </div>

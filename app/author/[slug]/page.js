@@ -65,45 +65,56 @@ function getPageRequest(slug) {
 }
 export async function generateMetadata({ params }) {
     const { site, author } = await performRequest(getPageRequest(params.slug))
-
-    return toNextMetadata([...site?.favicon, ...author?.seo])
+    if (!author === null) {
+        return toNextMetadata([...site?.favicon, ...author?.seo])
+    }
 }
 export default async function Page({ params }) {
 
     const pageRequest = getPageRequest(params.slug);
     const data = await performRequest(pageRequest);
-    const { name, bio, picture, description } = data?.author;
-   
-    return (
+    if (!data.author === null) {
+        const { name, bio, picture, description } = data?.author;
+        return (
 
 
-        <div className="mt-20 flex-col flex items-center justify-center">
+            <div className="mt-20 flex-col flex items-center justify-center">
 
-            <div className=" max-w-2xl w-full gap-4 flex flex-col items-start   px-6 py-3 rounded-full bg-white text-gray-700  ">
-                <div className="flex items-center">
-                    <div className="mr-4">
-                        <img
-                            alt={name}
-                            src={picture.responsiveImage.src}
-                            className="rounded-sm w-auto h-24"
-                        />
+                <div className=" max-w-2xl w-full gap-4 flex flex-col items-start   px-6 py-3 rounded-full bg-white text-gray-700  ">
+                    <div className="flex items-center">
+                        <div className="mr-4">
+                            <img
+                                alt={name}
+                                src={picture.responsiveImage.src}
+                                className="rounded-sm w-auto h-24"
+                            />
+                        </div>
+                        <div className="text-xl font-bold flex flex-col items-start text-start">
+                            {name}
+                            <span className="font-light text-base ">
+                                {bio}
+                            </span>
+                        </div>
                     </div>
-                    <div className="text-xl font-bold flex flex-col items-start text-start">
-                        {name}
-                        <span className="font-light text-base ">
-                            {bio}
-                        </span>
+                    <div className="text-base">
+                        {description}
                     </div>
                 </div>
-                <div className="text-base">
-                    {description}
-                </div>
+                {data.author ?
+                    <BlogCard data={data.author._allReferencingPosts} />
+                    :
+                    <div>The author's blogs were not found.</div>
+                }
             </div>
-            {data.author ?
-                <BlogCard data={data.author._allReferencingPosts} />
-                :
-                <div>No blogs related to the tag were found.</div>
-            }
-        </div>
-    )
+        )
+    } else {
+        return (
+
+            <div className="mt-20 flex-col flex items-center justify-center">
+                <div>The author's blogs were not found.</div>
+            </div>
+        )
+
+    }
+
 }
