@@ -14,11 +14,9 @@ export default function Footer() {
                             <div className="flex flex-col items-center gap-6 mb-8">
                                 <div className="flex flex-wrap items-center justify-center gap-5 lg:gap-12 gap-y-3 lg:flex-nowrap text-dark-grey-900">
                                     <a href="/blogs" className="text-gray-600 hover:text-gray-900">Blogs</a>
-                                    <a href="javascript:void(0)" className="text-gray-600 hover:text-gray-900">Features</a>
-                                    <a href="javascript:void(0)" className="text-gray-600 hover:text-gray-900">Resources</a>
-                                    <a href="javascript:void(0)" className="text-gray-600 hover:text-gray-900">Partners</a>
-                                    <a href="javascript:void(0)" className="text-gray-600 hover:text-gray-900">Help</a>
-                                    <a href="javascript:void(0)" className="text-gray-600 hover:text-gray-900">Terms</a>
+                                    <a href="/#team" className="text-gray-600 hover:text-gray-900">Team</a>
+                                    <a href="/#clients" className="text-gray-600 hover:text-gray-900">Clients</a>
+                                    <a href="/#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
                                 </div>
                                 <div className="flex items-center gap-8">
 

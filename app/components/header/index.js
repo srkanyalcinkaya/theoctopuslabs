@@ -53,7 +53,7 @@ export default function Header() {
                 <div className="mx-auto container  w-full px-8 py-4">
                     <div className="flex justify-between items-center">
 
-                        <div className="shrink-0  mr-4 ">
+                        <div className="shrink-0  w-1/2 mr-4 ">
                             <Link href="/">
                                 <img
                                     src="/images/theoctopuslabslogo.svg"
@@ -103,7 +103,7 @@ export default function Header() {
                 {
                     links.map((item, index) => (
                         <li key={index} className="relative">
-                            <Link href={item.href} className="font-medium text-xl border-b-0 group   text-white  py-2 px-3 md:px-5  ">
+                            <Link href={item.href} onClick={()=>setIsOpen(false)} className="font-medium text-xl border-b-0 group   text-white  py-2 px-3 md:px-5  ">
 
                                 {item?.title}
                                 <div className={`${pathname?.split("/")[1] == item.href?.split("/")[1] ? "w-full" : "w-0"} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />

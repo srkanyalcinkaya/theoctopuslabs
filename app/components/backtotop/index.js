@@ -36,7 +36,7 @@ export default function BackToTopButton() {
                     id="to-top-button"
                     onClick={scrollToTop}
                     title="Go To Top"
-                    className=" fixed z-[999] bottom-8 right-8 border-0 flex items-center justify-center md:w-16 md:h-16 w-8 h-8 rounded-full drop-shadow-md bg-secondary/80 text-white">
+                    className=" fixed z-[999] bottom-8 right-8 border-0 flex items-center justify-center md:w-16 md:h-16 w-12 h-12 rounded-full drop-shadow-md bg-secondary/80 text-white">
                     <MdKeyboardDoubleArrowUp className="md:h-8 md:w-8 w-4 h-4"/>
                 </button>
             }

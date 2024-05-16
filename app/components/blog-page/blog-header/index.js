@@ -14,7 +14,7 @@ export default function BlogHeader({ title, coverImage, date, author, tags }) {
             <div className="hidden md:block md:mb-12">
                 <Avatar name={author.name} picture={author.picture} bio={author.bio} slug={author.slug} />
             </div>
-            <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">
+            <div className="mb-8 md:mb-16 sm:mx-0">
                 <CoverImage
                     title={title}
                     responsiveImage={coverImage.responsiveImage}
