@@ -22,7 +22,7 @@ const cardsData = [
         img:"/images/salt&partners.png"
     },
     {
-        title:"Genesis Law",
+        title:"Genesis Hukuk",
         description:"Genesis Law is a leading firm offering legal advice and support in blockchain technology. We combine expertise in law, technology, and project management to help clients navigate blockchain interactions securely and efficiently.",
         img:"/images/genesislaw.png"
     },
