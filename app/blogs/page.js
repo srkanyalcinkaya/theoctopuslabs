@@ -52,18 +52,18 @@ function getPageRequest() {
   return { query: PAGE_CONTENT_QUERY };
 }
 
-export async function generateMetadata() {
-  const { site, blog } = await performRequest(getPageRequest());
+// export async function generateMetadata() {
+//   const { site, blog } = await performRequest(getPageRequest());
 
-  return toNextMetadata([...site.favicon, ...blog.seo]);
-}
+//   console.log(blog)
+//   return toNextMetadata([...site.favicon, ...blog.seo]);
+// }
 
 export default async function Page() {
 
   const pageRequest = getPageRequest();
   const data = await performRequest(pageRequest);
-
   return (
-    <BlogCard data={data.allPosts} />
+    <BlogCard data={data?.allPosts} />
   )
 }
