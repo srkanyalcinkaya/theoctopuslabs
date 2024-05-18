@@ -1,7 +1,7 @@
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
-export async function POST(req) {
+export async function GET(req) {
   const token = req.nextUrl.searchParams.get("token")
 
   if (token !== process.env.CACHE_INVALIDATION_SECRET_TOKEN) {
