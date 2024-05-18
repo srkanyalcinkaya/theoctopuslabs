@@ -12,6 +12,11 @@ const cardsData =[
         img:"/images/image-2@2x.png"
     },
     {
+        title:"NextJS",
+        description:"Next.js is a powerful React framework that enables server-side rendering, static site generation, and provides a robust development environment for building scalable, high-performance web applications.",
+        img:"/images/nextjs.png"
+    },
+    {
         title:"Blockchain",
         description:"Blockchain is a decentralized database technology that is mostly used developing cryptocurrencies like Bitcoin or Ethereum.",
         img:"/images/image-3@2x.png"
@@ -26,6 +31,26 @@ const cardsData =[
         description:"Figma is a collaborative browser-based interface design tool for creating user interfaces.",
         img:"/images/image-4@2x.png"
     },
+    {
+        title: "Solidity",
+        description: "Solidity is a statically-typed programming language designed for developing smart contracts that run on the Ethereum blockchain.",
+        img: "/images/solidity.svg"
+    },
+    {
+        title: "Web3",
+        description: "Web3.js is a JavaScript library that allows developers to interact with the Ethereum blockchain, enabling tasks like querying blockchain data and making transactions.",
+        img: "/images/web3js.png"
+    },
+    {
+        title: "Ethers",
+        description: "Ethers.js is a JavaScript library designed for interacting with the Ethereum blockchain and its ecosystem, focusing on simplicity, security, and performance.",
+        img: "/images/etherjs.svg"
+    },
+    {
+        title: "Flask",
+        description: "Flask is a lightweight WSGI web application framework in Python. It is designed with simplicity and flexibility in mind, making it easy to get started quickly and scale up to more complex applications.",
+        img: "/images/flask.png"
+    }
 ]
 
 export default function Technologies() {

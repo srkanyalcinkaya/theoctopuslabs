@@ -9,22 +9,22 @@ const cardsData = [
     {
         title:"LawLinkGlobal",
         description:"LawLinkGlobal is an innovative legal service platform operating on blockchain, connecting users with a global network of attorneys and facilitating professional interactions among lawyers.",
-        img:"/images/cha.svg"
+        img:"/images/llg.png"
     },
     {
         title:"Tabirle",
         description:"Describe your dream and let Tabirle’s AI interpret its meaning. With AI, we provide comprehensive dream analysis and visualization, helping you remember and share your dreams.",
-        img:"/images/cha.svg"
+        img:"/images/tabirle.png"
     },
     {
         title:"Salt and Partners",
         description:"Salt & Partners pioneers a unique partnership model, uniting consultants and lawyers from around the world to deliver seamless cross-border legal and consultancy services, creating an international network.",
-        img:"/images/cha.svg"
+        img:"/images/salt&partners.png"
     },
     {
         title:"Genesis Law",
         description:"Genesis Law is a leading firm offering legal advice and support in blockchain technology. We combine expertise in law, technology, and project management to help clients navigate blockchain interactions securely and efficiently.",
-        img:"/images/cha.svg"
+        img:"/images/genesislaw.png"
     },
 ]
 
