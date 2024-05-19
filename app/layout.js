@@ -6,9 +6,16 @@ import { metaTagsFragment } from "./lib/fragments";
 import { toNextMetadata } from "react-datocms/seo";
 import { performRequest } from "./lib/datocms";
 import Footer from "./components/footer";
+import getAvailableLocales from "./i18n/settings";
 
 
 
+export async function generateStaticParams() {
+  const languages = await getAvailableLocales()
+  return languages.map(language => {
+    language
+  })
+}
 
 const GENERAL_CONTENT_QUERY = `
     query TagQuery{
