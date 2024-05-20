@@ -4,7 +4,8 @@ import Hero from "./hero";
 import Team from "./team";
 import Technologies from "./technologies";
 
-export default function Home ({data}) {
+export default function Home ({data, lng}) {
+    
     return(
         <main className="grow flex flex-col gap-8">
             <Hero/>

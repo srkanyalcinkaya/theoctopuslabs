@@ -1,7 +1,7 @@
-import BlogCard from "../components/blog-cards";
-import { toNextMetadata } from "react-datocms";
-import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
-import { performRequest } from "../lib/datocms";
+import BlogCard from "@/app/components/blog-cards";
+import { performRequest } from "@/app/lib/datocms";
+import { metaTagsFragment, responsiveImageFragment } from "@/app/lib/fragments";
+import { toNextMetadata } from "react-datocms/seo";
 
 
 const PAGE_CONTENT_QUERY = `
@@ -58,11 +58,11 @@ export async function generateMetadata() {
   return toNextMetadata([...site?.favicon, ...blog?.seo]);
 }
 
-export default async function Page() {
-
+export default async function Page({params}) {
+  const {lng} = params
   const pageRequest = getPageRequest();
   const data = await performRequest(pageRequest);
   return (
-    <BlogCard data={data?.allPosts} />
+    <BlogCard data={data?.allPosts} lng={lng} />
   )
 }

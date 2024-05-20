@@ -51,11 +51,11 @@ export const metadata = {
 
 
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang="en">
       <body className="antialiased bg-white text-slate-900 tracking-tight font-rubik  min-h-screen">
-        <Header />
+        <Header lng={lng} />
         <Container>
           {children}
         </Container>

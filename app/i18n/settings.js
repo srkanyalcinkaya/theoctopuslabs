@@ -10,8 +10,6 @@ export default async function getAvailableLocales() {
 
 export async function getFallbackLocale() {
     const { _site } = await queryDatoCMS(LocalesDocument)
-
+    console.log(_site)
     return _site.locales[0] //using the first ordered locale as fallback
 }
-
-export const primaryColor = "rgb(var(--color-primary))"

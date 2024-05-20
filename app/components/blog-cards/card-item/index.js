@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-export default function CardItem({ blog }) {
+export default function CardItem({ blog, lng }) {
 
     return (
         <li>
-            <Link href={`/blogs/${blog.slug}`} className="relative flex flex-col sm:flex-row xl:flex-col items-start group">
+            <Link href={`/${lng}/blogs/${blog.slug}`} className="relative flex flex-col sm:flex-row xl:flex-col items-start group">
                 <div className="order-1 sm:ml-6 xl:ml-0">
                     <div className="mb-1 text-sm leading-6 text-indigo-500 flex gap-2 items-center">
                         {blog.tags.map((item, index) => (

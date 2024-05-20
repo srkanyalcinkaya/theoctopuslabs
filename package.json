@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "accept-language": "^3.0.18",
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
@@ -16,6 +17,7 @@
     "i18next": "^23.11.4",
     "i18next-resources-to-backend": "^1.2.1",
     "language-name-map": "^0.3.0",
+    "negotiator": "^0.6.3",
     "next": "14.2.3",
     "react": "^18",
     "react-datocms": "^6.0.1",

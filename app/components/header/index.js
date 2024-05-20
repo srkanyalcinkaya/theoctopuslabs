@@ -3,7 +3,8 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react"
 import { usePathname } from 'next/navigation';
 import { RiCloseFill, RiMenu3Fill } from "react-icons/ri";
-export default function Header() {
+import LanguageSelector from "../language-selector";
+export default function Header({lng}) {
     const headerRef = useRef(null);
     const pathname = usePathname()
     const handleStickyHeader = () => {
@@ -44,6 +45,7 @@ export default function Header() {
         }
 
     ]
+
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -94,6 +96,7 @@ export default function Header() {
                             </ul>
 
                         </nav>
+                        <LanguageSelector lng={lng}/>
                     </div>
                 </div >
 
