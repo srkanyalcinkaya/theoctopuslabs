@@ -1,5 +1,6 @@
 import BlogCard from "@/app/components/blog-cards";
 import { performRequest } from "@/app/lib/datocms";
+import { metaTagsFragment, responsiveImageFragment } from "@/app/lib/fragments";
 import { toNextMetadata } from "react-datocms/seo";
 import { FaHashtag } from "react-icons/fa";
 
