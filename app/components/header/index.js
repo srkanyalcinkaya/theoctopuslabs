@@ -3,9 +3,10 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react"
 import { RiCloseFill, RiMenu3Fill } from "react-icons/ri";
 import LanguageSelector from "../language-selector";
-import Item from "./item";
+import { usePathname } from "next/navigation";
 
 export default function Header({ lng, intl }) {
+    const pathname = usePathname()
     const headerRef = useRef(null);
     const handleStickyHeader = () => {
         window.addEventListener("scroll", () => {
@@ -30,22 +31,22 @@ export default function Header({ lng, intl }) {
         {
             key: "blogs",
             href: `/${lng}/blogs`,
-            separator:true
+            separator: true
         },
         {
             key: "team",
             href: `/${lng}/home/#team`,
-            separator:false
+            separator: false
         },
         {
             key: "clients",
             href: `/${lng}/home/#clients`,
-            separator:false
+            separator: false
         },
         {
             key: "contact",
             href: `/${lng}/home/#contact`,
-            separator:false
+            separator: false
         }
 
     ]
@@ -80,18 +81,17 @@ export default function Header({ lng, intl }) {
                         <nav className="md:block hidden">
                             <ul className="flex justify-end items-center  flex-wrap grow gap-3 ">
                                 {
-                                    links.map((item, index) => (
-                                        <Item data={item} key={item.key} setIsOpen={setIsOpen}  intl={intl} />
+                                    links.map((item) => (
+                                       <li className="relative" key={item.key}>
+                                            <Link href={item.href} className="font-medium text-base border-b-0 group   text-white  py-2 px-3 md:px-5  ">
+
+                                                {intl["header"][item.key]}
+                                                <div className={`${item.separator && (pathname?.split("/")[2] == item.href?.split("/")[2] ? "w-full" : "w-0")} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
+                                            </Link>
+                                        </li>
                                     ))
                                 }
-                                {/* <li>
-                <Link to="#contact" spy={true}
-                    smooth={true}
-                    offset={-80}
-                    duration={800} className="inline-flex cursor-pointer font-bold py-[15px] px-[35px] text-white items-center rounded-[30px]  border-2 border-[#ffffff]/30 bg-[#030304]/30 ">
-                    CONTACT
-                </Link>
-            </li> */}
+                                
                             </ul>
 
                         </nav>
@@ -100,11 +100,17 @@ export default function Header({ lng, intl }) {
                 </div >
 
             </header>
-            <ul className={`${isOpen ? 'fixed flex flex-col gap-12 items-center justify-center inset-0   z-[999] md:hidden  top-[4.7rem] w-full h-full border-r  bg-green-500/90 ease-in-out duration-500 text-white'
+            <ul className={`${isOpen ? 'fixed flex flex-col gap-12 items-center justify-center inset-0   z-[999] md:hidden  top-[4.4rem] w-full h-full border-r  bg-green-500/90 ease-in-out duration-500 text-white'
                 : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 right-[-100%]'}`}>
                 {
-                    links.map((item, index) => (
-                        <Item data={item} key={item.key} setIsOpen={setIsOpen}    intl={intl}/>
+                    links.map((item) => (
+                        <li className="relative" key={item.key}>
+                            <Link href={item.href} onClick={()=> setIsOpen(false)} className="font-medium text-base border-b-0 group   text-white  py-2 px-3 md:px-5  ">
+
+                                {intl["header"][item.key]}
+                                <div className={`${item.separator && (pathname?.split("/")[2] == item.href?.split("/")[2] ? "w-full" : "w-0")} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
+                            </Link>
+                        </li>
                     ))
                 }
             </ul>
