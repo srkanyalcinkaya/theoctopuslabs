@@ -29,19 +29,23 @@ export default function Header({ lng, intl }) {
     const links = [
         {
             key: "blogs",
-            href: "/blogs"
+            href: `/${lng}/blogs`,
+            separator:true
         },
         {
             key: "team",
-            href: "#team",
+            href: `/${lng}/home/#team`,
+            separator:false
         },
         {
             key: "clients",
-            href: "/#clients",
+            href: `/${lng}/home/#clients`,
+            separator:false
         },
         {
             key: "contact",
-            href: "/#contact",
+            href: `/${lng}/home/#contact`,
+            separator:false
         }
 
     ]
@@ -77,7 +81,7 @@ export default function Header({ lng, intl }) {
                             <ul className="flex justify-end items-center  flex-wrap grow gap-3 ">
                                 {
                                     links.map((item, index) => (
-                                        <Item data={item} key={index} setIsOpen={setIsOpen}  intl={intl} />
+                                        <Item data={item} key={item.key} setIsOpen={setIsOpen}  intl={intl} />
                                     ))
                                 }
                                 {/* <li>
@@ -100,7 +104,7 @@ export default function Header({ lng, intl }) {
                 : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 right-[-100%]'}`}>
                 {
                     links.map((item, index) => (
-                        <Item data={item} key={index} setIsOpen={setIsOpen}    intl={intl}/>
+                        <Item data={item} key={item.key} setIsOpen={setIsOpen}    intl={intl}/>
                     ))
                 }
             </ul>

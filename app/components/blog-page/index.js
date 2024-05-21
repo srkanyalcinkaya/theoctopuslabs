@@ -3,7 +3,7 @@ import BlogBody from "./blog-body";
 import BlogHeader from "./blog-header";
 import MoreStories from "./more-stories";
 
-export function BlogPage({ data }) {
+export function BlogPage({ data, lng }) {
   const { post, morePosts } = data;
 
   return (

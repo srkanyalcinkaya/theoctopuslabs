@@ -41,10 +41,10 @@ const LanguageSelector = ({ lng }) => {
                 }
                 role="menu"
             >
-                {languages.map(locale => {
+                {languages.map((locale,index) => {
                     return (
                         <div
-                            key={locale}
+                            key={index}
                             className="inline-flex w-full cursor-pointer items-end justify-start rounded- text-sm font-medium text-gray-900 hover:bg-gray-100"
                         >
                             <a

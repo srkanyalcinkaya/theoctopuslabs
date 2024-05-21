@@ -113,7 +113,7 @@ export default function Technologies({intl}) {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  pt-10 place-items-start'>
                     {
                         cardsData.map(item => (
-                            <Cards item={item} intl={intl} key={item.title} />
+                            <Cards item={item} intl={intl} key={item.key} />
                         ))
                     }
                 </div>

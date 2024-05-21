@@ -5,7 +5,7 @@ import Date from "../../date";
 import BlogTitle from "../blog-title";
 import { FaHashtag } from "react-icons/fa";
 
-export default function BlogHeader({ title, coverImage, date, author, tags, lng = "en" }) {
+export default function BlogHeader({ title, coverImage, date, author, tags, lng }) {
 
 
     return (
@@ -25,11 +25,11 @@ export default function BlogHeader({ title, coverImage, date, author, tags, lng 
                     <Avatar name={author.name} picture={author.picture} bio={author.bio} slug={author.slug} lng={lng} />
                 </div>
                 <div className="mb-6 text-lg flex items-center gap-6 w-full justify-between">
-                    <Date dateString={date} />
+                    <Date dateString={date} locale={lng}/>
                     <div className="flex items-center gap-1">
                         {tags.map((item) => (
                             <Link href={`/${lng}/tag/${item?.slug}`}
-                                class=" text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
+                                className=" text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
                             >
                                 <FaHashtag />
                                 {item?.tag}

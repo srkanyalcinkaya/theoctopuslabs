@@ -110,7 +110,6 @@ export default async function Page({ params }) {
   const data = await performRequest(pageRequest);
   
   return (
-    <BlogPage data={data} />
-    
+    <BlogPage data={data} lng={lng} />
   )
 }

@@ -38,7 +38,7 @@ export default function Clients({ intl }) {
 
                     {
                         cardsData.map(item => (
-                            <Cards item={item} intl={intl} key={item.title} />
+                            <Cards item={item} intl={intl} key={item.key} />
                         ))
                     }
                 </div>

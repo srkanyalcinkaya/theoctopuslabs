@@ -14,8 +14,8 @@ export default function Team({ authors, intl }) {
                     </div>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12  pt-10'>
-                    {authors.map((item) => (
-                        <TeamItem key={item.id} item={item} />
+                    {authors.map((item, index) => (
+                        <TeamItem key={index} item={item} />
                     ))}
                 </div>
             </div>
