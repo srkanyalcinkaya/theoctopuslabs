@@ -1,12 +1,12 @@
 "use client"
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react"
-import { usePathname } from 'next/navigation';
 import { RiCloseFill, RiMenu3Fill } from "react-icons/ri";
 import LanguageSelector from "../language-selector";
-export default function Header({lng}) {
+import Item from "./item";
+
+export default function Header({ lng, intl }) {
     const headerRef = useRef(null);
-    const pathname = usePathname()
     const handleStickyHeader = () => {
         window.addEventListener("scroll", () => {
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -28,19 +28,19 @@ export default function Header({lng}) {
 
     const links = [
         {
-            title: "Blogs",
+            key: "blogs",
             href: "/blogs"
         },
         {
-            title: "Team",
+            key: "team",
             href: "#team",
         },
         {
-            title: "Clients",
+            key: "clients",
             href: "/#clients",
         },
         {
-            title: "Contact",
+            key: "contact",
             href: "/#contact",
         }
 
@@ -48,6 +48,7 @@ export default function Header({lng}) {
 
 
     const [isOpen, setIsOpen] = useState(false)
+
 
     return (
         <>
@@ -76,27 +77,21 @@ export default function Header({lng}) {
                             <ul className="flex justify-end items-center  flex-wrap grow gap-3 ">
                                 {
                                     links.map((item, index) => (
-                                        <li key={index} className="relative">
-                                            <Link href={item.href} className="font-medium text-base border-b-0 group   text-white  py-2 px-3 md:px-5  ">
-
-                                                {item?.title}
-                                                <div className={`${pathname?.split("/")[1] == item.href?.split("/")[1] ? "w-full" : "w-0"} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
-                                            </Link>
-                                        </li>
+                                        <Item data={item} key={index} setIsOpen={setIsOpen}  intl={intl} />
                                     ))
                                 }
                                 {/* <li>
-                                <Link to="#contact" spy={true}
-                                    smooth={true}
-                                    offset={-80}
-                                    duration={800} className="inline-flex cursor-pointer font-bold py-[15px] px-[35px] text-white items-center rounded-[30px]  border-2 border-[#ffffff]/30 bg-[#030304]/30 ">
-                                    CONTACT
-                                </Link>
-                            </li> */}
+                <Link to="#contact" spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={800} className="inline-flex cursor-pointer font-bold py-[15px] px-[35px] text-white items-center rounded-[30px]  border-2 border-[#ffffff]/30 bg-[#030304]/30 ">
+                    CONTACT
+                </Link>
+            </li> */}
                             </ul>
 
                         </nav>
-                        <LanguageSelector lng={lng}/>
+                        <LanguageSelector lng={lng} />
                     </div>
                 </div >
 
@@ -105,16 +100,11 @@ export default function Header({lng}) {
                 : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 right-[-100%]'}`}>
                 {
                     links.map((item, index) => (
-                        <li key={index} className="relative">
-                            <Link href={item.href} onClick={()=>setIsOpen(false)} className="font-medium text-xl border-b-0 group   text-white  py-2 px-3 md:px-5  ">
-
-                                {item?.title}
-                                <div className={`${pathname?.split("/")[1] == item.href?.split("/")[1] ? "w-full" : "w-0"} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
-                            </Link>
-                        </li>
+                        <Item data={item} key={index} setIsOpen={setIsOpen}    intl={intl}/>
                     ))
                 }
             </ul>
         </>
     )
 }
+

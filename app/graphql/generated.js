@@ -23,3 +23,17 @@ export const LocalesDocument = {
         }
     ]
 }
+
+
+export let SiteLocale
+
+    ; (function (SiteLocale) {
+        SiteLocale["De"] = "de"
+        SiteLocale["En"] = "en"
+        SiteLocale["Es"] = "es"
+        SiteLocale["Fr"] = "fr"
+        SiteLocale["It"] = "it"
+        SiteLocale["Pt"] = "pt"
+        SiteLocale["Ru"] = "ru"
+        SiteLocale["Sv"] = "sv"
+    })(SiteLocale || (SiteLocale = {}))

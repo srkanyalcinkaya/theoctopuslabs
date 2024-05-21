@@ -1,6 +1,6 @@
-import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 
-export default function Footer() {
+export default function Footer({ intl }) {
     const year = new Date().getFullYear()
     return (
         <footer>
@@ -13,20 +13,23 @@ export default function Footer() {
                             </div>
                             <div className="flex flex-col items-center gap-6 mb-8">
                                 <div className="flex flex-wrap items-center justify-center gap-5 lg:gap-12 gap-y-3 lg:flex-nowrap text-dark-grey-900">
-                                    <a href="/blogs" className="text-gray-600 hover:text-gray-900">Blogs</a>
-                                    <a href="/#team" className="text-gray-600 hover:text-gray-900">Team</a>
-                                    <a href="/#clients" className="text-gray-600 hover:text-gray-900">Clients</a>
-                                    <a href="/#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+                                    <a href="/blogs" className="text-gray-600 hover:text-gray-900">{intl["header"].blogs}</a>
+                                    <a href="/#team" className="text-gray-600 hover:text-gray-900">{intl["header"].team}</a>
+                                    <a href="/#clients" className="text-gray-600 hover:text-gray-900">{intl["header"].clients}</a>
+                                    <a href="/#contact" className="text-gray-600 hover:text-gray-900">{intl["header"].contact}</a>
                                 </div>
                                 <div className="flex items-center gap-8">
 
-                                    <a href="javascript:void(0)" className="text-grey-700 hover:text-grey-900">
+                                    <a href="https://x.com/TheOctopusLabs" className="text-grey-700 hover:text-grey-900">
                                         <FaTwitter />
                                     </a>
-                                    <a href="javascript:void(0)" className="text-grey-700 hover:text-grey-900">
+                                    <a href="https://github.com/TheOctopusLabs" className="text-grey-700 hover:text-grey-900">
                                         <FaGithub />
                                     </a>
-                                    <a href="javascript:void(0)" className="text-grey-700 hover:text-grey-900">
+                                    <a href="t.me/theoctopuslabs" className="text-grey-700 hover:text-grey-900">
+                                        <FaTelegram />
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/the-octopus-labs" className="text-grey-700 hover:text-grey-900">
                                         <FaLinkedin />
                                     </a>
                                 </div>

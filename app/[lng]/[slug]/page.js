@@ -3,6 +3,12 @@ import getAvailableLocales from "@/app/i18n/settings";
 import { performRequest } from "@/app/lib/datocms";
 import { responsiveImageFragment } from "@/app/lib/fragments";
 
+export async function generateStaticParams() {
+  const languages = await getAvailableLocales();
+  return languages.map((language) => {
+    language;
+  });
+}
 
 const HOME_CONTENT_QUERY = `
 query MyQuery($locale: SiteLocale) {
@@ -21,30 +27,20 @@ query MyQuery($locale: SiteLocale) {
 }
 ${responsiveImageFragment}
 `
-export async function generateStaticParams() {
-  const languages = await getAvailableLocales();
-  return languages.map((language) => {
-    language;
-  });
+function getPageRequest(lng) {
+  return { query: HOME_CONTENT_QUERY, variables: { locale: lng } };
 }
 
-function getPageRequest() {
 
-  return {
-    query: HOME_CONTENT_QUERY
-  };
-}
+
 export default async function Page({ params }) {
   const { lng } = params
-  // const pageRequest = getPageRequest();
 
-  const data = await performRequest(
-    {
-      query: HOME_CONTENT_QUERY, 
-      locale: lng,
-    }
-  );
+  const data = await performRequest(getPageRequest(lng));
+
+ 
   return (
     <Home data={data} lng={lng} />
   );
 }
+

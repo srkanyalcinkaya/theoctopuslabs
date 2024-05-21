@@ -5,7 +5,7 @@ import { toNextMetadata } from "react-datocms/seo";
 
 
 const PAGE_CONTENT_QUERY = `
-  {
+query MyQuery($locale: SiteLocale) {
     site: _site {
       favicon: faviconMetaTags {
         ...metaTagsFragment
@@ -16,7 +16,7 @@ const PAGE_CONTENT_QUERY = `
         ...metaTagsFragment
       }
     }
-    allPosts(orderBy: date_DESC, first: 20) {
+    allPosts(orderBy: date_DESC, first: 20, locale: $locale) {
       title
       slug
       excerpt
@@ -49,8 +49,8 @@ const PAGE_CONTENT_QUERY = `
 `;
 
 
-function getPageRequest() {
-  return { query: PAGE_CONTENT_QUERY };
+function getPageRequest(lng) {
+  return { query: PAGE_CONTENT_QUERY,  variables: { locale:lng } };
 }
 
 export async function generateMetadata() {
@@ -60,7 +60,7 @@ export async function generateMetadata() {
 
 export default async function Page({params}) {
   const {lng} = params
-  const pageRequest = getPageRequest();
+  const pageRequest = getPageRequest(lng);
   const data = await performRequest(pageRequest);
   return (
     <BlogCard data={data?.allPosts} lng={lng} />

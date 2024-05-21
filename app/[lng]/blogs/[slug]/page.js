@@ -1,7 +1,7 @@
 import { BlogPage } from "@/app/components/blog-page";
 import { toNextMetadata } from "react-datocms";
-import { metaTagsFragment, responsiveImageFragment } from "@/app/lib/fragments";
 import { performRequest } from "@/app/lib/datocms";
+import { metaTagsFragment, responsiveImageFragment } from "@/app/lib/fragments";
 
 export async function generateStaticParams() {
   const { allPosts } = await performRequest({ query: `{ allPosts { slug } }` });
@@ -10,13 +10,13 @@ export async function generateStaticParams() {
 }
 
 const PAGE_CONTENT_QUERY = `
-  query PostBySlug($slug: String) {
+  query PostBySlug($slug: String, $locale: SiteLocale) {
     site: _site {
       favicon: faviconMetaTags {
         ...metaTagsFragment
       }
     }
-    post(filter: {slug: {eq: $slug}}) {
+    post(filter: {slug: {eq: $slug}}, locale: $locale) {
       seo: _seoMetaTags {
         ...metaTagsFragment
       }
@@ -62,7 +62,7 @@ const PAGE_CONTENT_QUERY = `
       }
     }
 
-    morePosts: allPosts(orderBy: date_DESC, first: 2, filter: {slug: {neq: $slug}}) {
+    morePosts: allPosts(orderBy: date_DESC, first: 2, filter: {slug: {neq: $slug}}, locale:$locale) {
       title
       slug
       excerpt
@@ -92,23 +92,25 @@ const PAGE_CONTENT_QUERY = `
 
 
 
-function getPageRequest(slug) {
+function getPageRequest(slug, lng) {
 
-  return { query: PAGE_CONTENT_QUERY, variables: { slug } };
+  return { query: PAGE_CONTENT_QUERY, variables: { slug, locale: lng } };
 }
 
 export async function generateMetadata({ params }) {
-  const { site, post } = await performRequest(getPageRequest(params.slug))
+  const { lng, slug } = params;
+  const { site, post } = await performRequest(getPageRequest(slug, lng))
 
-  return toNextMetadata([...site.favicon, ...post.seo])
+  return toNextMetadata([...site?.favicon, ...post?.seo])
 }
 export default async function Page({ params }) {
+  const { lng, slug } = params
 
-
-  const pageRequest = getPageRequest(params.slug);
+  const pageRequest = getPageRequest(slug, lng);
   const data = await performRequest(pageRequest);
   
   return (
     <BlogPage data={data} />
+    
   )
 }
