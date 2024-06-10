@@ -7,7 +7,7 @@ import { performRequest } from "../lib/datocms";
 import Footer from "../components/footer";
 import getAvailableLocales, { getFallbackLocale } from "../i18n/settings";
 import { getDictionary } from "./getDictionary";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 
 export async function generateStaticParams() {
@@ -64,6 +64,7 @@ export default async function RootLayout({ children, params }) {
         </Container>
         <BackToTopButton />
         <Footer lng={lng} intl={intl} />
+        <GoogleAnalytics gaId="G-7N1HQTLCZ0" />
       </body>
     </html>
   );
