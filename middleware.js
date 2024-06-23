@@ -47,7 +47,8 @@ export async function middleware(request) {
 
         // e.g. incoming request is /products
         // The new URL is now /en/products
-        return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url))
+        
+        // return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url))
     }
 }
 
