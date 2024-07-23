@@ -67,7 +67,8 @@
         "blogs": "Bloglar",
         "team": "Ekip",
         "clients": "Müşteriler",
-        "contact": "İletişim"
+        "contact": "İletişim",
+        "bitcoin-info":"Bitcoin Bilgileri"
     },
     "technologies": {
         "title": "Kullandığımız teknolojiler",

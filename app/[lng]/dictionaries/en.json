@@ -67,7 +67,8 @@
     "blogs": "Blogs",
     "team": "Team",
     "clients": "Clients",
-    "contact": "Contact"
+    "contact": "Contact",
+    "bitcoin-info":"Bitcoin Info"
   },
   "technologies": {
     "title": "The technologies that we use",

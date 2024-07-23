@@ -1,6 +1,4 @@
 {
-  "index":"Home",
-  "beginners": "Beginners",
-  "getting-started":"Getting Started",
-  "guide":"Guide"
+  "index": "Anasayfa",
+  "bitcoin101": "Bitcoin 101"
 }

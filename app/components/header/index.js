@@ -34,6 +34,11 @@ export default function Header({ lng, intl }) {
             separator: true
         },
         {
+            key: "bitcoin-info",
+            href: `/${lng}/bitcoin-info`,
+            separator: true
+        },
+        {
             key: "team",
             href: `/${lng}/home/#team`,
             separator: false
@@ -79,11 +84,11 @@ export default function Header({ lng, intl }) {
                             }
                         </button>
                         <nav className="md:block hidden">
-                            <ul className="flex justify-end items-center  flex-wrap grow gap-3 ">
+                            <ul className="flex justify-end items-center  flex-wrap grow gap-6 ">
                                 {
                                     links.map((item) => (
                                        <li className="relative" key={item.key}>
-                                            <Link href={item.href} className="font-medium text-base border-b-0 group   text-white  py-2 px-3 md:px-5  ">
+                                            <Link href={item.href} className="font-medium text-base border-b-0 group   text-white    ">
 
                                                 {intl["header"][item.key]}
                                                 <div className={`${item.separator && (pathname?.split("/")[2] == item.href?.split("/")[2] ? "w-full" : "w-0")} h-[1px]  bg-white w-0 absolute -bottom-1 group-hover:w-full transition-all   `} />
