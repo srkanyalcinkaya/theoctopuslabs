@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { Image } from "react-datocms/image";
 
 
-export default function TeamItem({ item }) {
+export default function TeamItem({ item, lng }) {
     return (
         <>
-            <div className="border border-black flex flex-col items-start justify-start gap-4 rounded-lg p-5 text-start">
+            <Link href={`/${lng}/author/${item.slug}`} className="border border-black flex flex-col items-start justify-start gap-4 rounded-lg p-5 text-start">
                 <div className="flex items-center gap-4">
                     <Image
                         alt={item.name}
@@ -17,7 +18,7 @@ export default function TeamItem({ item }) {
                     </div>
                 </div>
                 <p className='text-slate-700  text-xs font-normal  '>{item.description} </p>
-            </div>
+            </Link>
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import TeamItem from './team-item'
 
-export default function Team({ authors, intl }) {
+export default function Team({ authors, intl, lng }) {
 
     return (
         <section id="team" className=' max-w-6xl mx-auto px-2 md:px-4 '>
@@ -15,7 +15,7 @@ export default function Team({ authors, intl }) {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12  pt-10'>
                     {authors.map((item, index) => (
-                        <TeamItem key={index} item={item} />
+                        <TeamItem key={index} item={item} lng={lng} />
                     ))}
                 </div>
             </div>

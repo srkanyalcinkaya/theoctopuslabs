@@ -13,7 +13,7 @@ export default async function Home({ data, lng }) {
             <Hero intl={intl}/>
             <Clients intl={intl}/>
             <Technologies intl={intl}/>
-            <Team authors={data.allAuthors} intl={intl}/>
+            <Team authors={data.allAuthors} intl={intl} lng={lng}/>
             <Contact intl={intl} />
         </main>
     )
