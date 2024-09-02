@@ -133,9 +133,7 @@ export default function Page() {
         <div className="mt-20 flex-col flex items-center justify-center">
 
             <div className="flex flex-col items-start text-left gap-4 mb-8">
-                <h1 className="text-3xl text-black font-bold ">Getting Started with Bitcoin</h1>
-                <p className="text-sm text-gray-500">Bitcoin is a revolutionary system that is quite complex and has a steep learning curve. Make sure you have a decent grasp of the system before you store a significant amount of value in it. <br /> <b>If you make a critical mistake such as losing your keys or sending your money to a scammer, no one can fix it!</b></p>
-
+                <h1 className="text-3xl text-black font-bold ">Bitcoin Resources</h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 gap-y-8 place-content-center">
                 {data.map((section) => (
