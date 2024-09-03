@@ -61,21 +61,23 @@ const config = {
             (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
         return (
             <>
+                <meta name="keywords" content={`${frontMatter.tags ? frontMatter.tags.slice(",") : "The Octopus Labs"}`} />
                 <meta property="og:url" content={url} />
                 <meta property="og:title" content={frontMatter.title || 'The Octopus Labs'} />
                 <meta
                     property="og:description"
                     content={frontMatter.description || 'The Octopus Labs'}
                 />
-                <meta name="keywords" content={`${frontMatter.tags ? frontMatter.tags.slice(",") : "The Octopus Labs"}`} />
                 <meta name="og:image" content={socialCard} />
+                <meta property="og:site_name" content="The Octopus Labs " />
+                <meta property="og:locale" content="tr" />
                 <meta property="og:image:width" content="1024" />
                 <meta property="og:image:height" content="1024" />
                 <meta property="og:type" content="article" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@theoctopuslabs"/>
-                <meta name="twitter:title" content={frontMatter.title || 'The Octopus Labs'}/>
-                <meta name="twitter:description" content={frontMatter.description || 'The Octopus Labs'}/>
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:site" content="@theoctopuslabs" />
+                <meta name="twitter:title" content={frontMatter.title || 'The Octopus Labs'} />
+                <meta name="twitter:description" content={frontMatter.description || 'The Octopus Labs'} />
                 <meta name="twitter:image" content={socialCard} />
                 <meta name="twitter:image:width" content="1024" />
                 <meta name="twitter:image:height" content="1024" />
