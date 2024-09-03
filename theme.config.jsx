@@ -53,7 +53,7 @@ const config = {
         const { asPath, defaultLocale, locale, route } = useRouter()
         const { frontMatter } = useConfig()
         const socialCard =
-            route === '/' || !frontMatter.title
+            route === '/' || frontMatter.title
                 ? 'https://www.theoctopuslabs.com/og.png'
                 : `https://www.theoctopuslabs.com/og?title=${frontMatter.title}`
         const url =
@@ -67,8 +67,18 @@ const config = {
                     property="og:description"
                     content={frontMatter.description || 'The Octopus Labs'}
                 />
-                <meta name="og:image" content={'https://www.theoctopuslabs.com/og.png'} />
                 <meta name="keywords" content={`${frontMatter.tags ? frontMatter.tags.slice(",") : "The Octopus Labs"}`} />
+                <meta name="og:image" content={socialCard} />
+                <meta property="og:image:width" content="1024" />
+                <meta property="og:image:height" content="1024" />
+                <meta property="og:type" content="article" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@theoctopuslabs"/>
+                <meta name="twitter:title" content={frontMatter.title || 'The Octopus Labs'}/>
+                <meta name="twitter:description" content={frontMatter.description || 'The Octopus Labs'}/>
+                <meta name="twitter:image" content={socialCard} />
+                <meta name="twitter:image:width" content="1024" />
+                <meta name="twitter:image:height" content="1024" />
             </>
         )
     }
