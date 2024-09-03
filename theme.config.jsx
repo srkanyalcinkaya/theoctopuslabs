@@ -54,7 +54,7 @@ const config = {
         const { frontMatter } = useConfig()
         const socialCard =
             route === '/' || frontMatter.title
-                ? 'https://www.theoctopuslabs.com/og.avif'
+                ? 'https://www.theoctopuslabs.com/og.png'
                 : `https://www.theoctopuslabs.com/og?title=${frontMatter.title}`
         const url =
             'https://www.theoctopuslabs.com' +
@@ -71,6 +71,7 @@ const config = {
                 <meta name="og:image" content={socialCard} />
                 <meta property="og:site_name" content="The Octopus Labs " />
                 <meta property="og:locale" content="tr" />
+                <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="1024" />
                 <meta property="og:image:height" content="1024" />
                 <meta property="og:type" content="article" />
