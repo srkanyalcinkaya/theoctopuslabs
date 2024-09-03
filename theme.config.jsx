@@ -67,7 +67,7 @@ const config = {
                     property="og:description"
                     content={frontMatter.description || 'The Octopus Labs'}
                 />
-                <meta name="og:image" content={socialCard} />
+                <meta name="og:image" content={'https://www.theoctopuslabs.com/og.png'} />
                 <meta name="keywords" content={`${frontMatter.tags ? frontMatter.tags.slice(",") : "The Octopus Labs"}`} />
             </>
         )
