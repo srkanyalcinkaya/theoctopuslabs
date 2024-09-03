@@ -54,7 +54,7 @@ const config = {
         const { frontMatter } = useConfig()
         const socialCard =
             route === '/' || frontMatter.title
-                ? 'https://www.theoctopuslabs.com/og.png'
+                ? 'https://www.theoctopuslabs.com/og.avif'
                 : `https://www.theoctopuslabs.com/og?title=${frontMatter.title}`
         const url =
             'https://www.theoctopuslabs.com' +
