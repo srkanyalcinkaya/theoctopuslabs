@@ -1,5 +1,8 @@
 import React from "react"
 import { useRouter } from 'next/router'
+import { useConfig } from 'nextra-theme-docs'
+import matter from 'gray-matter';
+
 const config = {
     logo: (
         <>
@@ -10,7 +13,7 @@ const config = {
                 />
             </svg>
             <span style={{ marginLeft: '.4em', fontWeight: 800 }}>
-                Learn With Serkan
+                Learn With Octopus
             </span>
         </>
     ),
@@ -39,12 +42,35 @@ const config = {
         const { asPath } = useRouter()
         if (asPath !== '/') {
             return {
-                titleTemplate: '%s – The Octopus Labs'
+                titleTemplate: '%s | The Octopus Labs'
             }
         }
     },
     toc: {
         backToTop: true
+    },
+    head: () => {
+        const { asPath, defaultLocale, locale, route } = useRouter()
+        const { frontMatter } = useConfig()
+        const socialCard =
+            route === '/' || !frontMatter.title
+                ? 'https://www.theoctopuslabs.com/og.png'
+                : `https://www.theoctopuslabs.com/og?title=${frontMatter.title}`
+        const url =
+            'https://www.theoctopuslabs.com' +
+            (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+        return (
+            <>
+                <meta property="og:url" content={url} />
+                <meta property="og:title" content={frontMatter.title || 'The Octopus Labs'} />
+                <meta
+                    property="og:description"
+                    content={frontMatter.description || 'The Octopus Labs'}
+                />
+                <meta name="og:image" content={socialCard} />
+                <meta name="keywords" content={`${frontMatter.tags ? frontMatter.tags.slice(",") : "The Octopus Labs"}`} />
+            </>
+        )
     }
 }
 

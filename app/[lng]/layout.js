@@ -46,7 +46,20 @@ export const metadata = {
     url: item.attributes.href,
   })),
   description: "At The Octopus Labs, we combine the strength of expertises—Software Engineering, Blockchain Development, Smart Contract Integration, AI Solutions, Mobile App Creation, Legal Expertise, Project Management, and User Experience (UX) Design—with three hearts of passion, dedication, and vision.",
-  metadataBase: new URL("https://theoctopuslabs.com")
+  metadataBase: new URL("https://theoctopuslabs.com"),
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 

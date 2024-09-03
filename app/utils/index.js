@@ -2783,3 +2783,158 @@ export const other_resources = [
         ]
     }
 ];
+
+export const metaData = {
+    'getting-started': {
+        title: "Getting Started with Bitcoin",
+        description: "Learn the basics of Bitcoin and why it's important.",
+    },
+    'recommended-wallets': {
+        title: "Recommended Bitcoin Wallets",
+        description: "Find the best wallets for securing your Bitcoin.",
+    },
+    'full-node': {
+        title: "Running a Full Node",
+        description: "Discover the benefits of running your own Bitcoin node.",
+    },
+    'history': {
+        title: "The History of Bitcoin",
+        description: "Understand the origins and development of Bitcoin.",
+    },
+    'news': {
+        title: "Bitcoin News Sites",
+        description: "Find trustworthy Bitcoin news sources.",
+    },
+    'discussion-forums': {
+        title: "Bitcoin Discussion Forums",
+        description: "Engage in discussions about Bitcoin and its future.",
+    },
+    'statistics-metrics': {
+        title: "Bitcoin Network Statistics",
+        description: "Explore metrics and statistics about the Bitcoin network.",
+    },
+    'fee-estimates': {
+        title: "Bitcoin Transaction Fee Estimates",
+        description: "Get estimates for Bitcoin transaction fees.",
+    },
+    'block-explorers': {
+        title: "Bitcoin Block Explorers",
+        description: "Explore the Bitcoin blockchain and transaction history.",
+    },
+    'visualizations': {
+        title: "Bitcoin Data Visualizations",
+        description: "Visualize Bitcoin data and trends.",
+    },
+    'mining': {
+        title: "Bitcoin Mining",
+        description: "Learn about Bitcoin mining and its importance.",
+    },
+    'data-anchor': {
+        title: "Bitcoin Data Anchoring",
+        description: "Understand how Bitcoin can be used for data anchoring.",
+    },
+    'technical-resources': {
+        title: "Technical Bitcoin Resources",
+        description: "Find detailed technical resources for Bitcoin.",
+    },
+    'developer-tools': {
+        title: "Bitcoin Developer Tools",
+        description: "Access tools for Bitcoin developers.",
+    },
+    'security': {
+        title: "Bitcoin Security",
+        description: "Learn how to secure your Bitcoin holdings.",
+    },
+    'privacy': {
+        title: "Bitcoin Privacy",
+        description: "Explore privacy practices for Bitcoin users.",
+    },
+    'economics': {
+        title: "Bitcoin Economics",
+        description: "Understand the economic theories behind Bitcoin.",
+    },
+    'art-music': {
+        title: "Bitcoin Art & Music",
+        description: "Discover art and music inspired by Bitcoin.",
+    },
+    'online-offline-classes': {
+        title: "Bitcoin Classes",
+        description: "Find online and offline classes about Bitcoin.",
+    },
+    'documentaries': {
+        title: "Bitcoin Documentaries",
+        description: "Watch documentaries about Bitcoin's impact.",
+    },
+    'video-presentations': {
+        title: "Bitcoin Video Presentations",
+        description: "Watch video presentations and lectures on Bitcoin.",
+    },
+    'podcasts': {
+        title: "Bitcoin Podcasts",
+        description: "Listen to podcasts about Bitcoin and its ecosystem.",
+    },
+    'blogs': {
+        title: "Bitcoin Blogs",
+        description: "Read insightful blog posts about Bitcoin.",
+    },
+    'books': {
+        title: "Bitcoin Books",
+        description: "Read books that delve deeply into Bitcoin.",
+    },
+    'twitter': {
+        title: "Bitcoin on Twitter",
+        description: "Follow Bitcoin-related updates and discussions on Twitter.",
+    },
+    'investment-theses': {
+        title: "Bitcoin Investment Theses",
+        description: "Explore various investment theses related to Bitcoin.",
+    },
+    'buying-earning': {
+        title: "Buying & Earning Bitcoin",
+        description: "Learn how to buy and earn Bitcoin.",
+    },
+    'trading': {
+        title: "Advanced Bitcoin Trading",
+        description: "Understand advanced Bitcoin trading strategies.",
+    },
+    'exchange-data': {
+        title: "Bitcoin Exchange Rate Data",
+        description: "Get real-time exchange rate data for Bitcoin.",
+    },
+    'merchant-adoption': {
+        title: "Bitcoin Merchant Adoption",
+        description: "Find out how merchants are adopting Bitcoin.",
+    },
+    'tax-accounting': {
+        title: "Bitcoin Tax Accounting",
+        description: "Manage your Bitcoin taxes and accounting.",
+    },
+    'careers': {
+        title: "Bitcoin Careers",
+        description: "Explore career opportunities in the Bitcoin space.",
+    },
+    'charity': {
+        title: "Bitcoin Charities",
+        description: "Learn about charitable efforts involving Bitcoin.",
+    },
+    'legal': {
+        title: "Bitcoin Legal Issues",
+        description: "Stay updated on legal aspects of Bitcoin.",
+    },
+    'governance': {
+        title: "Bitcoin Governance",
+        description: "Understand Bitcoin's governance structure.",
+    },
+    'forks': {
+        title: "Bitcoin Forks",
+        description: "Learn about Bitcoin forks and their implications.",
+    },
+    'other-layers': {
+        title: "Other Bitcoin Layers",
+        description: "Explore additional layers built on top of Bitcoin.",
+    },
+    'other-resources': {
+        title: "Other Bitcoin Resources",
+        description: "Find additional resources related to Bitcoin.",
+    },
+};

@@ -16,6 +16,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "graphql": "^16.8.1",
+    "gray-matter": "^4.0.3",
     "i18next": "^23.11.4",
     "i18next-resources-to-backend": "^1.2.1",
     "language-name-map": "^0.3.0",

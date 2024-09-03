@@ -1,15 +1,24 @@
 "use client"
-
-import { artAndCultureResources, bitcoin_content, blockExplorers, blogs, books, buying_earning, careers, charity, data_anchor, developer_tools, discussionForums, documentaries, economicsResources, exchange_data, feeEstimates, forks, governance, history, investmentTheses, legal, merchant_adoption, mining, news, nodeData, onlineClasses, other_layers, other_resources, podcast, presentationCollections, privacyResources, securityResources, statisticsMetrics, tax_accounting, technical_resources, trading, visualizations, walletData, x } from "@/app/utils";
+import { artAndCultureResources, bitcoin_content, blockExplorers, blogs, books, buying_earning, careers, charity, data_anchor, developer_tools, discussionForums, documentaries, economicsResources, exchange_data, feeEstimates, forks, governance, history, investmentTheses, legal, merchant_adoption, metaData, mining, news, nodeData, onlineClasses, other_layers, other_resources, podcast, presentationCollections, privacyResources, securityResources, statisticsMetrics, tax_accounting, technical_resources, trading, visualizations, walletData, x } from "@/app/utils";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Head from "next/head";
+
+
 
 export default function Page() {
     const pathname = usePathname();
-    const pathSlipt = pathname.split("/")
+    const pathSplit = pathname.split("/")
+
+    const pageKey = pathSplit[pathSplit.length - 1];
+    const meta = metaData[pageKey] || {
+        title: "The Octopus Labs",
+        description: "At The Octopus Labs, we combine the strength of expertises—Software Engineering, Blockchain Development, Smart Contract Integration, AI Solutions, Mobile App Creation, Legal Expertise, Project Management, and User Experience (UX) Design—with three hearts of passion, dedication, and vision.",
+    };
+
     let data;
-    switch (pathSlipt[pathSlipt.length - 1]) {
+    switch (pageKey) {
         case "getting-started":
             data = bitcoin_content
             break;
@@ -130,50 +139,58 @@ export default function Page() {
     }
 
     return (
-        <div className="mt-20 flex-col flex items-center justify-center">
+        <>
+            <Head>
+                <title>{meta.title}</title>
+                <meta name="description" content={meta.description} />
+                <meta property="og:title" content={meta.title} />
+                <meta property="og:description" content={meta.description} />
+            </Head>
+            <div className="mt-20 flex-col flex items-center justify-center">
 
-            <div className="flex flex-col items-start text-left gap-4 mb-8">
-                <h1 className="text-3xl text-black font-bold ">Bitcoin Resources</h1>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 gap-y-8 place-content-center">
-                {data.map((section) => (
-                    <div key={section.id} className="mt-10  h-auto">
-                        <h2 id={section.id} className="text-2xl font-bold text-primary mb-4 text-wrap text-start flex items-start px-4">
-                            <a href={`#${section.id}`}>{section.title}</a>
-                        </h2>
-                        <ul className="list-disc pl-5 space-y-2">
-                            {section?.links ? section?.links?.map((link, index) => (
-                                <li key={index}>
-                                    <Link
-                                        href={link.href}
-                                        title={link.title}
-                                        target="_blank"
-                                        rel="noopener"
-                                        className="text-primary/70 hover:underline flex items-center gap-2 text-wrap"
-                                    >
-                                        <span>
-                                            {link.text}
-                                        </span>
-                                        {link.href.startsWith('http') ? <BsBoxArrowUpRight size={14} /> : null}
-                                    </Link>
-                                </li>
-                            )) :
-                                section?.items?.map((item, index) => (
+                <div className="flex flex-col items-start text-left gap-4 mb-8">
+                    <h1 className="text-3xl text-black font-bold ">Bitcoin Resources</h1>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 gap-y-8 place-content-center">
+                    {data.map((section) => (
+                        <div key={section.id} className="mt-10  h-auto">
+                            <h2 id={section.id} className="text-2xl font-bold text-primary mb-4 text-wrap text-start flex items-start px-4">
+                                <a href={`#${section.id}`}>{section.title}</a>
+                            </h2>
+                            <ul className="list-disc pl-5 space-y-2">
+                                {section?.links ? section?.links?.map((link, index) => (
                                     <li key={index}>
-                                        <div
-                                            className="text-black/70 flex items-center gap-2  md:pr-10"
+                                        <Link
+                                            href={link.href}
+                                            title={link.title}
+                                            target="_blank"
+                                            rel="noopener"
+                                            className="text-primary/70 hover:underline flex items-center gap-2 text-wrap"
                                         >
                                             <span>
-                                                {item}
+                                                {link.text}
                                             </span>
-                                        </div>
+                                            {link.href.startsWith('http') ? <BsBoxArrowUpRight size={14} /> : null}
+                                        </Link>
                                     </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                ))}
+                                )) :
+                                    section?.items?.map((item, index) => (
+                                        <li key={index}>
+                                            <div
+                                                className="text-black/70 flex items-center gap-2  md:pr-10"
+                                            >
+                                                <span>
+                                                    {item}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
