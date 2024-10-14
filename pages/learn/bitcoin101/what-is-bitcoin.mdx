@@ -1,5 +1,5 @@
 ---
-title: Bitcoin Nasıl Çalışır?22
+title: Bitcoin Nasıl Çalışır?
 tags:
   - Bitcoin
   - Satoshi Nakamoto
@@ -52,7 +52,9 @@ Bitcoin, merkezi bir kontrol noktası olmadan işleyen bir ödeme sistemi oluşt
 Bitcoin'den önce, işlemleri bir bilgisayar ağı üzerinden iletmek mümkündü. Ancak, bir bilgisayar ağına çelişkili işlemler eklemek mümkündü. Örneğin, aynı dijital parayı harcayan iki ayrı işlem oluşturabilir ve bu işlemleri aynı anda ağa gönderebilirdiniz.
 
 Bu durum "çift harcama" olarak bilinir:
-(Aynı anda bir ağa iki çelişkili işlemin gönderildiğini gösteren bir diyagram. )
+
+<Screenshot src={"/images/bitcoin101/bitcoin101-4.jpg"} alt="Aynı anda bir ağa iki çelişkili işlemin gönderildiğini gösteren bir diyagram." />
+ 
 
 Bazı bilgisayarlar önce yeşil işlemi, bazıları ise önce kırmızı işlemi alacaktır.
 Elektronik bir ödeme sistemi merkezi bir otorite olmadan oluşturulduğunda, bu işlemlerden hangisinin "önce" geldiğini belirlemek zordur ve bağımsız hareket eden bir bilgisayar ağına sahipseniz bu durum daha da zorlaşır.
@@ -62,8 +64,9 @@ Bitcoin, düğümleri aldıkları tüm işlemleri dosyaya yazmadan önce bellekt
 Bu güncellenmiş dosya daha sonra ağın geri kalanıyla paylaşılır. Düğümler, güncellenmiş dosyadaki işlemleri "doğru" olarak kabul eder ve belleklerindeki çelişkili işlemleri silerler.
 Sonuç olarak, çift harcama işlemleri asla dosyaya yazılmaz ve tüm düğümler düzenli olarak aynı dosya sürümünü günceller.
 
-(Düğümlerin, güncellenmiş dosya sürümünü kabul edip çelişkili işlemleri belleklerinden sildiklerini gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-4.jpg"} alt="Düğümlerin, güncellenmiş dosya sürümünü kabul edip çelişkili işlemleri belleklerinden sildiklerini gösteren bir diyagram." />
+ 
 Bu işlemleri dosyaya ekleme süreci madencilik olarak adlandırılır ve ağ çapında bir yarışma olup, ağdaki tek bir düğüm tarafından kontrol edilemez.
 
 ## Madencilik nasıl çalışır? 
@@ -72,20 +75,24 @@ Başlangıçta, her düğüm, aldığı en son işlemleri belleğinde depolar. B
 Herhangi bir düğüm, bellek havuzundaki işlemleri blok zincirine eklemek için madencilik yapabilir.
 Bunu yapmak için, bir düğüm bellek havuzundaki işlemleri bir blok adı verilen bir konteyner içine toplar ve bu blok işlemlerini blok zincirine eklemek için işlem gücünü kullanır.
 
-(Bir düğümün ağda bellek havuzundaki işlemleri toplayıp blok zincirine eklediğini gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-5.jpg"} alt="Bir düğümün ağda bellek havuzundaki işlemleri toplayıp blok zincirine eklediğini gösteren bir diyagram." />
+ 
 Peki bu işlem gücü nereden geliyor? Blok zincirine bir blok eklemek için, bu blok işlemlerini bir hash fonksiyonuna sokmalısınız. Hash fonksiyonu, herhangi bir miktarda veriyi alıp karıştırarak tamamen benzersiz (ve tahmin edilemez) bir sayı üreten mini bir bilgisayar programıdır.
 
-(Verilerin hash fonksiyonuna sokulup rastgele bir sayı çıktığını gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-6.jpg"} alt="Verilerin hash fonksiyonuna sokulup rastgele bir sayı çıktığını gösteren bir diyagram." />
+ 
 Blok zincirine başarılı bir şekilde eklenebilmesi için, bu sayı (veya blok hash'i) hedefin altında olmalıdır; bu, ağdaki herkesin üzerinde anlaştığı bir eşiktir.
 
-(Bir blok hash'inin hedef değerin altına inmeye çalıştığını gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-7.jpg"} alt="Bir blok hash'inin hedef değerin altına inmeye çalıştığını gösteren bir diyagram." />
+ 
 Eğer elde edilen blok hash'i hedefin altında değilse, blok içindeki verilere küçük bir ayarlama yapabilir ve hash fonksiyonunu yeniden çalıştırabilirsiniz. Bu, tamamen farklı bir sayı üretecek ve umarım hedefin altında olacaktır. Değilse, bloğu ayarlayıp yeniden deneyebilirsiniz.
 
-(Bir madencinin blok hash'ini farklı bir sayı üretmek için verileri ayarladığını gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-8.jpg"} alt="Bir madencinin blok hash'ini farklı bir sayı üretmek için verileri ayarladığını gösteren bir diyagram." />
+ 
 Sonunda, ağdaki bir düğüm (veya madenci), hedefin altında bir blok hash'i bulur ve bu blok işlemleri blok zincirine ekler.
 Daha sonra madencilik süreci, zincire bir sonraki bloğu eklemek için tekrar başlar.
 Özetle, madencilik süreci, hedefin altına bir blok hash'i indirmeye çalışmak için hash hesaplamaları yaparak işlem gücünü kullanır. Eğer başarılı olursanız, blok işlemlerinizi blok zincirine ekleyebilir ve bunu ağın geri kalanıyla paylaşabilirsiniz.
@@ -99,14 +106,16 @@ Blokları madencilik yapmak hala mümkün olsa da, ev bilgisayarında madencilik
 ## Bitcoin’ler nereden geliyor? 
 Blok zincirine yeni bloklar eklemek için işlem gücü kullanma teşviki olarak, her yeni blok, daha önce var olmayan sabit bir miktarda bitcoin sunar. Dolayısıyla, bir bloğu başarıyla madencilik yaparsanız, bu yeni bitcoini "kendinize" ödül olarak gönderebilirsiniz.
 
-(Yeni bir blok madenciliği yapıldığında blok ödülünü gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-9.jpg"} alt="Yeni bir blok madenciliği yapıldığında blok ödülünü gösteren bir diyagram." />
+ 
 Bu yeni bitcoin grubu, blok ödülü olarak adlandırılır ve bu nedenle bu süreç madencilik olarak adlandırılır.
 ## Dosyaya neden "blok zinciri" denir?  
 İşlemler dosyaya bireysel olarak eklenmez; toplu olarak toplanıp bloklar halinde eklenirler. Her yeni blok, mevcut bir bloğun üzerine inşa edilir, bu nedenle dosya blok zincirlerinden oluşur; yani blok zinciri.
 
-(Bir bloğun üzerine inşa edilecek önceki bir bloğu belirten bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-10.jpg"} alt="Bir bloğun üzerine inşa edilecek önceki bir bloğu belirten bir diyagram." />
+ 
 Ayrıca, ağdaki her düğüm, aldıkları en uzun blok zincirini "resmi" blok zinciri sürümü olarak benimser.
 Bu, madencilerin her zaman en uzun bilinen blok zincirinin "ucu" üzerine inşa etmeye çalışacağı anlamına gelir, çünkü en uzun zincirde yer almayan işlemler geçersiz olacaktır.
 
@@ -122,41 +131,49 @@ Başka bir deyişle, tüm işlem geçmişi (ve paranız) madenciliğin birleşik
 ## İşlemler nasıl çalışır? 
 Blok zincirini, çıkışlar olarak adlandırdığımız kasetli kasa kutuları için bir depolama tesisi olarak düşünebilirsiniz. Bu çıkışlar, çeşitli miktarlarda bitcoin içeren konteynerlerdir.
 
-(Blok zincirinin birçok bireysel çıkışı depoladığını gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-11.jpg"} alt="Blok zincirinin birçok bireysel çıkışı depoladığını gösteren bir diyagram." />
+ 
 Bir bitcoin işlemi yaptığınızda, bazı çıkışları seçip kilitlerini açarsınız, sonra yeni çıkışlar oluşturur ve bunlara yeni kilitler takarsınız.
 
-(Bir işlemin blok zincirinden bir çıkış seçip bundan yeni bir çıkış oluşturduğunu gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-12.jpg"} alt="Bir işlemin blok zincirinden bir çıkış seçip bundan yeni bir çıkış oluşturduğunu gösteren bir diyagram." />
+ 
 Yani birine bitcoin gönderdiğinizde, aslında bir miktar bitcoini yeni bir kasa kutusuna koyar ve yalnızca gönderdiğiniz kişinin açabileceği bir kilit takarsınız.
 Örneğin, size biraz bitcoin göndermek isteseydim, blok zincirinden kilidini açabileceğim bazı çıkışları seçer ve yalnızca sizin açabileceğiniz yeni bir çıkış oluştururdum. Ayrıca, tüm bitcoini göndermek istemezsem, kendime "para üstü" olarak ek bir çıkış oluştururdum.
 
-(Bir işlemin para üstü olarak ek bir çıkış oluşturduğunu gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-13.jpg"} alt="Bir işlemin para üstü olarak ek bir çıkış oluşturduğunu gösteren bir diyagram." />
+ 
 İleride, bitcoini başka birine göndermek isterseniz, mevcut çıkışları (kilidini açabileceğiniz) seçip bunlardan yeni çıkışlar oluşturma sürecini tekrarlarsınız. Sonuç olarak, bitcoin işlemleri, bitcoinlerin hareketinin işlemler dizisi ile bağlantılı olduğu grafik benzeri bir yapı oluşturur.
 
-(Bir dizi işlemin, bir önceki işlemin çıkışlarını açarak bunlardan yeni çıkışlar oluşturduğunu gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-14.jpg"} alt="Bir dizi işlemin, bir önceki işlemin çıkışlarını açarak bunlardan yeni çıkışlar oluşturduğunu gösteren bir diyagram." />
+ 
 Son olarak, bir işlem blok zincirine madencilik yapıldığında, işlemde kullanılan (harcanan) çıkışlar başka bir işlemde kullanılamaz ve yeni oluşturulan çıkışlar gelecekteki bir işlemde harcanabilir olacaktır.
 
-(Blok zinciri içindeki işlemlerin harcanan ve oluşturulan çıkışlarını gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-15.jpg"} alt="Blok zinciri içindeki işlemlerin harcanan ve oluşturulan çıkışlarını gösteren bir diyagram." />
+ 
 ## Bitcoinlere nasıl sahip olursunuz?  
 Bitcoin "almak" için kendi anahtar setinize sahip olmanız gerekir.
 Bu anahtar seti, hesap numaranız ve şifreniz gibidir, ancak Bitcoin'de bunlara genel anahtarınız ve özel anahtarınız denir.
 Örneğin, size bitcoin göndermek isteseydim, önce bana genel anahtarınızı vermeniz gerekirdi. İşlemimi oluştururken, çıkış üzerindeki kilide (kasetli kasa kutusu) genel anahtarınızı yerleştirirdim. Ve bu bitcoinleri başka birine göndermek istediğinizde, bu çıkışı açmak için özel anahtarınızı kullanırdınız.
 
-(Bir işlemde çıkışları kilitlemek ve açmak için kullanılan genel ve özel anahtar çiftini gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-16.jpg"} alt="Bir işlemde çıkışları kilitlemek ve açmak için kullanılan genel ve özel anahtar çiftini gösteren bir diyagram." />
+ 
 Peki genel anahtar ve özel anahtarı nereden alabilirsiniz? Kriptografinin yardımıyla aslında bunları kendiniz oluşturabilirsiniz.
 Kısacası, özel anahtarınız sadece büyük bir rastgele sayıdır ve genel anahtarınız bu özel anahtardan hesaplanan bir sayıdır. Ama asıl zekice olan kısım şu ki; genel anahtarınızı başkasına verebilirsiniz, ancak özel anahtarı anlamak için geriye doğru çalışamazlar.
 
-(Bir özel anahtar ve genel anahtar örneğini gösteren bir diyagram.)
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-17.jpg"} alt="Bir özel anahtar ve genel anahtar örneğini gösteren bir diyagram." />
+ 
 Genel anahtar özel anahtardan hesaplanmaktadır. Şimdi, genel anahtarınıza atanan bitcoinleri açmak istediğinizde, özel anahtarınızı kullanarak dijital imza adı verilen bir şey oluşturursunuz. Bu imza, genel anahtarın sahibi olduğunuzu (ve dolayısıyla bitcoinleri açabileceğinizi) kanıtlar, özel anahtarı açıklamak zorunda kalmadan. Bu imza sadece oluşturulduğu işlem için geçerlidir, bu nedenle aynı genel anahtara kilitlenmiş diğer bitcoinleri açmak için kullanılamaz.
 
-(Özel anahtarın dijital imza oluşturmak için kullanıldığını ve bunun bir işlemde bir çıkışı açmak için kullanıldığını gösteren bir diyagram. )
 
+<Screenshot src={"/images/bitcoin101/bitcoin101-18.jpg"} alt="Özel anahtarın dijital imza oluşturmak için kullanıldığını ve bunun bir işlemde bir çıkışı açmak için kullanıldığını gösteren bir diyagram." />
+ 
 Bu sistem, 1978'den beri kullanılmakta olan (RSA'ya bakınız) Açık Anahtar Kriptografisi olarak bilinir. Bitcoin, hesaplar ve şifreler oluşturmak için merkezi bir otoriteye ihtiyaç duymadan, herhangi birinin bitcoin gönderme ve alma anahtarlarını güvenli bir şekilde oluşturmasına olanak tanımak için bu sistemi kullanır.
 <Callout type="default">
 Bitcoin'de genel anahtarı daha kullanıcı dostu bir adres haline getiririz; bu, ödeme gönderip alırken kullanacağınız şeydir.
