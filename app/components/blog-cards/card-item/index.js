@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function CardItem({ blog, lng }) {
-
     return (
         <li>
             <Link href={`/${lng}/blogs/${blog.slug}`} className="relative flex flex-col sm:flex-row xl:flex-col items-start group">
@@ -27,7 +26,13 @@ export default function CardItem({ blog, lng }) {
                         </svg>
                     </div>
                 </div>
-                <img src={blog.coverImage.responsiveImage.srcSet} alt={blog.title} className="mb-6 shadow-md rounded-lg bg-slate-50 w-full sm:w-[17rem] sm:mb-0 xl:mb-6 xl:w-full" width={1216} height={640} />
+                <div className="w-full sm:w-[17rem] xl:w-full h-48 sm:h-40 xl:h-56 overflow-hidden rounded-lg mb-4 ">
+                    <img 
+                        src={blog.coverImage.responsiveImage.srcSet} 
+                        alt={blog.title} 
+                        className="w-full h-full object-contain rounded-lg"
+                    />
+                </div>
             </Link>
         </li>
     )
