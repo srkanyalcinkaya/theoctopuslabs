@@ -1,58 +1,26 @@
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{ts,tsx}"],
+  darkMode: "class",
   theme: {
-    extend: {
-
-      fontFamily: {
-        rubik: "Rubik",
-      },
-      colors: {
-        primary: '#006923',
-        secondary: '#00872d',
-        background: '#FFFFFF',
-        surface: '#F2F2F2',
-        error: '#B00020',
-        "accent-1": "#FAFAFA",
-        "accent-2": "#EAEAEA",
-        "accent-7": "#333",
-        success: "#0070f3",
-        cyan: "#79FFE1",
-      },
-      spacing: {
-        28: "7rem",
-      },
-      letterSpacing: {
-        tighter: "-.04em",
-      },
-      lineHeight: {
-        tight: 1.2,
-      },
-      fontSize: {
-        "5xl": "2.5rem",
-        "6xl": "2.75rem",
-        "7xl": "4.5rem",
-        "8xl": "6.25rem",
-      },
-      boxShadow: {
-        small: "0 5px 10px rgba(0, 0, 0, 0.12)",
-        medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
-      },
-      typography: {
-        lg: {
-          css: {
-            img: {
-              marginTop: "0",
-              marginBottom: "0",
-            },
-          },
-        },
-      },
-    },
+    // rest of the code
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    // rest of the code
+    addVariablesForColors,
+  ],
 };
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
