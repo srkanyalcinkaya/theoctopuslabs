@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/ui/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/ui/header";
 import { metaTagsFragment } from "@/lib/fragments";
 import { performRequest } from "@/lib/datocms";
-
+import { Analytics } from "@vercel/analytics/react"
 const GENERAL_CONTENT_QUERY = `
     query TagQuery{
         site: _site {
@@ -64,6 +63,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <GoogleAnalytics gaId="G-7N1HQTLCZ0" />
+        <Analytics />
       </body>
     </html>
   );
