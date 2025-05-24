@@ -29,6 +29,12 @@ const cardsData = [
 
 const clients = [
     {
+        name: "Your Wallet",
+        logo: "/images/clients/yourwallet-logo.png",
+        description: "Software Development & Wallet Solutions",
+        href:"https://yourwallet.tr/"
+    },
+    {
         name: "Chavinci Network",
         logo: "/images/clients/cha.svg",
         description: "Software Development & Blockchain Solutions",
@@ -39,6 +45,12 @@ const clients = [
         logo: "/images/clients/llg-bg-logo.png",
         description: "Blockchain Solutions & Web Development",
         href:"https://www.lawlinkglobal.com/"
+    },
+    {
+        name: "Oğul Sigorta",
+        logo: "/images/clients/ogulsigorta-logo.png",
+        description: "Web Development & CMS",
+        href:"https://www.ogulsigorta.com/"
     },
     {
         name: "Coolhub Bag",
@@ -162,7 +174,7 @@ export default function Clients() {
                                     <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-gray-900 via-black to-[#ff1d25]/20 p-6 border border-gray-800 group hover:border-[#ff1d25] transition-all duration-300">
                                         <div className="w-full h-full flex items-center justify-center">
                                             <div className="w-20 h-20 flex items-center justify-center bg-black/30 rounded-full p-4 group-hover:bg-[#ff1d25]/10 transition-all duration-300">
-                                                <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
+                                                <img src={client.logo} alt={client.name} className="w-full h-full object-contain"  />
                                             </div>
                                         </div>
                                     </div>
